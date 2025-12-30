@@ -4,13 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard de Gestão de Obras (Com Dados)</title>
+    <link rel="icon" type="image/jpeg" href="img/logo.jpg">
+    <title>Victorino.eng | Gestão de Obras</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
-            --primary-color: #667eea;
-            --secondary-color: #764ba2;
+            /* Ajustei levemente o tom principal para combinar melhor com o azul/roxo da sua logo */
+            --primary-color: #5c4eb5; 
+            --secondary-color: #3b2a82;
             --background-color: #f4f7f9;
             --card-background: #ffffff;
             --text-color: #333;
@@ -33,7 +35,7 @@
         /* Sidebar/Menu */
         .sidebar {
             width: 250px;
-            background: var(--primary-color);
+            background: linear-gradient(180deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             color: white;
             padding: 20px 0;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
@@ -44,11 +46,29 @@
 
         .logo {
             text-align: center;
-            padding: 10px 0 30px 0;
-            font-size: 1.5em;
-            font-weight: 700;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px 0 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Novo estilo para a imagem da logo na sidebar */
+        .logo-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            object-fit: cover;
+            margin-bottom: 10px;
+            background-color: white; /* Caso a imagem tenha transparência */
+        }
+
+        .logo-text {
+            font-size: 1.1em;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
 
         .menu {
@@ -65,7 +85,7 @@
             display: flex;
             align-items: center;
             padding: 15px 20px;
-            color: white;
+            color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
             font-weight: 500;
             transition: background-color 0.3s, transform 0.1s;
@@ -75,13 +95,14 @@
 
         .menu a:hover,
         .tab:hover {
-            background-color: var(--secondary-color);
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
         .menu .tab.active {
-            background-color: var(--secondary-color);
-            border-left-color: white;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-left-color: #00d2ff; /* Azul cyan da sua logo */
             font-weight: 600;
+            color: white;
         }
 
         .menu i {
@@ -360,6 +381,16 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
+        /* Estilo da Logo no Login */
+        .login-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 4px solid var(--background-color);
+        }
+
         #login-container h2 {
             color: var(--primary-color);
             margin-bottom: 20px;
@@ -443,8 +474,9 @@
 <body>
     
     <div id="login-container">
-        <h2>🚧 Gestão de Obras (Demo)</h2>
-        <p style="text-align: center; color: #666; font-size: 0.9em; margin-bottom: 15px;">Login Local - Dados de exemplo incluídos</p>
+        <img src="img/logo.jpg" alt="Victorino.eng" class="login-logo">
+        <h2>Gestão de Obras</h2>
+        <p style="text-align: center; color: #666; font-size: 0.9em; margin-bottom: 15px;">Login Local - Victorino.eng</p>
         <input type="text" id="email-login" placeholder="Usuário (admin)" value="admin">
         <input type="password" id="senha-login" placeholder="Senha (123)" value="123">
         <button onclick="fazerLogin()">Entrar</button>
@@ -454,7 +486,10 @@
     <div id="dashboard-container" style="display: none; width: 100%;">
         
         <div class="sidebar">
-            <div class="logo">🚧 Gestão de Obras</div>
+            <div class="logo">
+                <img src="img/logo.jpg" alt="Victorino.eng Logo" class="logo-img">
+                <div class="logo-text">Victorino.eng</div>
+            </div>
             <ul class="menu">
                 <li>
                     <div class="tab active" onclick="mudarAba('dashboard')"><i class="fas fa-tachometer-alt"></i> Dashboard
